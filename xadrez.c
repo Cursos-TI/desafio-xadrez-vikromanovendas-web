@@ -1,52 +1,72 @@
 #include <stdio.h>
 
-int main() {
+/* protótipos */
+void torre();
+void bispo();
+void rainha();
+void cavalo();
 
-    /* -------------------------------
-       Movimento da TORRE
-       5 casas para a direita
-       usando FOR
-    --------------------------------*/
-    int casas_torre = 5;
+int main (){
 
-    printf("Movimento da Torre:\n");
+    printf("\n--- TORRE ---\n");
+    torre();
 
-    for (int i = 0; i < casas_torre; i++) {
-        printf("Direita\n");
-    }
+    printf("\n--- BISPO ---\n");
+    bispo();
 
+    printf("\n--- RAINHA ---\n");
+    rainha();
 
-    /* -------------------------------
-       Movimento do BISPO
-       5 casas na diagonal (cima e direita)
-       usando WHILE
-    --------------------------------*/
-    int casas_bispo = 5;
-    int contador_bispo = 0;
-
-    printf("\nMovimento do Bispo:\n");
-
-    while (contador_bispo < casas_bispo) {
-        printf("Cima, Direita\n");
-        contador_bispo++;
-    }
-
-
-    /* -------------------------------
-       Movimento da RAINHA
-       8 casas para a esquerda
-       usando DO WHILE
-    --------------------------------*/
-    int casas_rainha = 8;
-    int contador_rainha = 0;
-
-    printf("\nMovimento da Rainha:\n");
-
-    do {
-        printf("Esquerda\n");
-        contador_rainha++;
-    } while (contador_rainha < casas_rainha);
-
+    printf("\n--- CAVALO ---\n");
+    cavalo();
 
     return 0;
+}
+
+/* -------- TORRE -------- */
+
+void torre (){
+    int i = 1;  // mover a torre 5 casas para a direita (do-while)
+
+    do{ // Entrada ( 1x pelo menos)
+        printf("Direita\n"); // imprime a direção do movimento
+        i ++; // Incremento
+    } while (i <= 5); //Condição
+}
+
+/* -------- BISPO -------- */
+
+void bispo(){
+
+    int i = 1; // mover a bispo 5 casas para a cima e direita (while)
+
+    while (i <= 5){ // condição
+        printf("Cima\n"); // imprime a direção do movimento
+        printf("Direita\n"); // imprime a direção do movimento
+        i ++; //incremento
+    }
+}
+
+/* -------- RAINHA -------- */
+
+void rainha (){
+
+    // mover a rainha 8 casas para a esquerda (for-while)
+    for (int i = 0; i < 8; i++){
+        printf("esquerda\n"); // imprime a direção do movimento
+    }
+}
+
+/* -------- CAVALO -------- */
+
+void cavalo (){
+    int movimentoCompleto = 1; // Flag para controlar  o movimento em 'L'
+
+    while (movimentoCompleto --)
+    {
+        for (int i = 0; i < 2; i++){
+            printf("Cima\n"); // imprime "Cima" duas vezes
+        }
+        printf("Direita\n"); // imprime "Direita" uma vez
+    }
 }
